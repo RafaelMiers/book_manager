@@ -1,0 +1,72 @@
+services:
+
+  postgres_local:
+    image: postgres:16-alpine
+    container_name: bookmanager_postgres_local
+
+    env_file:
+      - .env
+
+    environment:
+      POSTGRES_USER: ${POSTGRES_USER}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
+      POSTGRES_DB: ${POSTGRES_DB}
+
+    ports:
+      - "${POSTGRES_PORT}:5432"
+
+    volumes:
+      - postgres_local_data:/var/lib/postgresql/data
+
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U ${POSTGRES_USER} -d ${POSTGRES_DB}"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+    networks:
+      - bookmanager_network
+
+
+  backend:
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
+
+    dns:
+      - 8.8.8.8
+      - 1.1.1.1
+
+    networks:
+      - bookmanager_network
+
+    image: rafaelmiers/book-manager-backend:latest
+
+    container_name: bookmanager_backend
+
+    env_file:
+      - .env
+
+    environment:
+      DATABASE_URL: postgresql://${POSTGRES_USER}:${POSTGRES_PASSWORD}
+
+    ports:
+      - "${BACKEND_PORT}:8000"
+
+    depends_on:
+      postgres_local:
+        condition: service_healthy
+
+    volumes:
+      - ./backend/logs:/app/logs
+      - ./backend/data:/app/data
+
+    command: uvicorn main:app --host 0.0.0.0 --port 8000
+
+    restart: unless-stopped
+
+volumes:
+  postgres_local_data:
+
+networks:
+  bookmanager_network:
+    driver: bridge

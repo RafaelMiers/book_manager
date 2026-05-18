@@ -6,7 +6,7 @@ app = FastAPI()
 
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["*"],  # tighten this in production
+    allow_origins=["*"],
     allow_methods=["*"],
     allow_headers=["*"],
 )
@@ -21,3 +21,7 @@ def root():
 @app.post("/items")
 def create_item(item: Item):
     return {"created": item.name}
+
+@app.post("/list")
+def list_all_items(items: list[Item]):
+    return {"items": [item.name for item in items]}
