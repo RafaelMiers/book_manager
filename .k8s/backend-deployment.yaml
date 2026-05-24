@@ -34,5 +34,5 @@ spec:
         - name: DB_NAME
           valueFrom:
             secretKeyRef:
-              name: backend-secret
+              name: backend-secrets
               key: DB_NAME

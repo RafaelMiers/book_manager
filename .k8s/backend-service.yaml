@@ -3,10 +3,10 @@ kind: Service
 metadata:
   name: backend-service
   labels:
-    app: backend
+    app: book-management-backend
 spec:
   selector:
-    app: backend
+    app: book-management-backend
   ports:
   - protocol: TCP
     port: 8000
