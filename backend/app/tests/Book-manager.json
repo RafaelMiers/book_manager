@@ -1,0 +1,90 @@
+{
+  "info": {
+    "name": "Book-manager",
+    "description": null,
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "Post usuario",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "auth": {
+          "type": "noauth"
+        },
+        "description": "",
+        "url": {
+          "raw": "{{baseURL}}usuarios",
+          "protocol": "",
+          "host": [
+            "{{baseURL}}usuarios"
+          ],
+          "path": [],
+          "query": [],
+          "variable": []
+        },
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"usr_nome\": \"nome do usuario\",\n  \"usr_email\": \"email do usuario\",\n  \"usr_senha\": \"senha do usuario\"\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      }
+    },
+    {
+      "name": "GetAll usuarios",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "auth": {
+          "type": "noauth"
+        },
+        "description": "",
+        "url": {
+          "raw": "{{baseURL}}usuarios",
+          "protocol": "",
+          "host": [
+            "{{baseURL}}usuarios"
+          ],
+          "path": [],
+          "query": [],
+          "variable": []
+        }
+      }
+    },
+    {
+      "name": "GetOne User",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "auth": {
+          "type": "noauth"
+        },
+        "description": "",
+        "url": {
+          "raw": "{{baseURL}}usuarios/1",
+          "protocol": "",
+          "host": [
+            "{{baseURL}}usuarios"
+          ],
+          "path": [
+            "1"
+          ],
+          "query": [],
+          "variable": []
+        }
+      }
+    }
+  ],
+  "variable": [
+    {
+      "key": "baseURL",
+      "value": "http://54.207.65.184:8000/",
+      "type": "default"
+    }
+  ]
+}

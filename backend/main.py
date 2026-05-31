@@ -67,4 +67,4 @@ def get_usuario_por_id(usr_id: int, db: Session = Depends(get_db)):
 
 @app.get("/")
 def root():
-    return {"message": "Hello from Python!"}
+    return {"Book-manager": "API para gerenciamento de livros e usuários"}
