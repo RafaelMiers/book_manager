@@ -39,6 +39,10 @@ services:
     networks:
       - bookmanager_network
 
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+
     image: rafaelmiers/book-manager-backend:latest
 
     container_name: bookmanager_backend
@@ -47,7 +51,7 @@ services:
       - .env
 
     environment:
-      DATABASE_URL: postgresql://${POSTGRES_USER}:${POSTGRES_PASSWORD}
+      DATABASE_URL: ${DATABASE_URL}
 
     ports:
       - "${BACKEND_PORT}:8000"

@@ -7,3 +7,4 @@ python-dotenv
 pytest
 pytest-cov
 passlib[bcrypt] 
+python-jose[cryptography]
