@@ -1,4 +1,4 @@
-[![Code Smells](https://sonarcloud.io/api/project_badges/measure?project=RafaelMiers_book_manager&metric=code_smells)](https://sonarcloud.io/summary/new_code?id=RafaelMiers_book_manager)
+[![Code Smells](https://sonarcloud.io/api/project_badges/measure?project=RafaelMiers_book_manager&metric=code_smells)](https://sonarcloud.io/summary/new_code?id=RafaelMiers_book_manager) [![SonarQube Cloud](https://sonarcloud.io/images/project_badges/sonarcloud-light.svg)](https://sonarcloud.io/summary/new_code?id=RafaelMiers_book_manager)
 
 # Stacks - sua biblioteca pessoal
 
