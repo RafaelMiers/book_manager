@@ -1,3 +1,5 @@
+[![Code Smells](https://sonarcloud.io/api/project_badges/measure?project=RafaelMiers_book_manager&metric=code_smells)](https://sonarcloud.io/summary/new_code?id=RafaelMiers_book_manager)
+
 # Stacks - sua biblioteca pessoal
 
 O book manager é uma aplicação web e mobile que permite o usuário gerenciar suas leituras, conseguindo colocar notas e reviews pessoais, anexar documentos .epub, .mobi, .pdf
